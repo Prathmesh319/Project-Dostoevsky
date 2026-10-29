@@ -1,0 +1,163 @@
+
+import json
+import torch
+from pathlib import Path
+from datasets import Dataset
+from transformers import (
+    AutoTokenizer,
+    AutoModelForCausalLM,
+    Trainer,
+    TrainingArguments,
+    DataCollatorForLanguageModeling,
+)
+from peft import LoraConfig, get_peft_model
+
+# Project paths
+ROOT = Path(__file__).resolve().parent.parent
+BASE = ROOT / "models" / "SmolLM2-360M-Instruct"
+DATA_FILE = ROOT / "library" / "personality_v4_philosophical.jsonl"
+OUTPUT = ROOT / "models" / "dostoevsky-lora-v4"
+
+print("=" * 50, flush=True)
+print("PROJECT DOSTOEVSKY V4", flush=True)
+print("=" * 50, flush=True)
+
+# 1. Validate files
+if not BASE.is_dir():
+    raise FileNotFoundError(f"Base model not found: {BASE}")
+
+if not DATA_FILE.is_file():
+    raise FileNotFoundError(f"Dataset not found: {DATA_FILE}")
+
+# Never overwrite an existing adapter accidentally
+if OUTPUT.exists() and any(OUTPUT.iterdir()):
+    raise FileExistsError(
+        f"Output folder already contains files: {OUTPUT}\n"
+        "Choose a new output folder before training again."
+    )
+
+# 2. Validate dataset
+rows = [
+    json.loads(line)
+    for line in DATA_FILE.read_text(encoding="utf-8").splitlines()
+    if line.strip()
+]
+
+for i, row in enumerate(rows):
+    messages = row.get("messages", [])
+    if len(messages) != 2:
+        raise ValueError(f"Example {i + 1}: expected two messages.")
+    if messages[0].get("role") != "user":
+        raise ValueError(f"Example {i + 1}: first role must be user.")
+    if messages[1].get("role") != "assistant":
+        raise ValueError(f"Example {i + 1}: second role must be assistant.")
+    if not all(m.get("content", "").strip() for m in messages):
+        raise ValueError(f"Example {i + 1}: empty message.")
+
+if len(rows) < 20:
+    raise ValueError(f"Expected at least 20 examples; found {len(rows)}.")
+
+print(f"Dataset validated: {len(rows)} examples", flush=True)
+
+# 3. Load tokenizer and format examples
+tokenizer = AutoTokenizer.from_pretrained(
+    str(BASE),
+    local_files_only=True,
+)
+
+if tokenizer.pad_token is None:
+    tokenizer.pad_token = tokenizer.eos_token
+
+texts = [
+    tokenizer.apply_chat_template(
+        row["messages"],
+        tokenize=False,
+        add_generation_prompt=False,
+    )
+    for row in rows
+]
+
+dataset = Dataset.from_dict({"text": texts})
+
+def tokenize_batch(batch):
+    return tokenizer(
+        batch["text"],
+        truncation=True,
+        max_length=384,
+        padding=False,
+    )
+
+dataset = dataset.map(
+    tokenize_batch,
+    batched=True,
+    remove_columns=["text"],
+)
+
+# 4. Load base model on CPU
+print("Loading base model on CPU...", flush=True)
+
+model = AutoModelForCausalLM.from_pretrained(
+    str(BASE),
+    local_files_only=True,
+    torch_dtype=torch.float32,
+)
+
+model.config.use_cache = False
+
+# 5. Configure separate LoRA adapter
+lora_config = LoraConfig(
+    r=8,
+    lora_alpha=16,
+    lora_dropout=0.05,
+    bias="none",
+    task_type="CAUSAL_LM",
+    target_modules=["q_proj", "v_proj"],
+)
+
+model = get_peft_model(model, lora_config)
+model.print_trainable_parameters()
+
+# 6. Configure training
+training_args = TrainingArguments(
+    output_dir=str(OUTPUT / "checkpoints"),
+    num_train_epochs=2,
+    per_device_train_batch_size=1,
+    gradient_accumulation_steps=2,
+    learning_rate=5e-5,
+    logging_steps=1,
+    save_strategy="epoch",
+    save_total_limit=2,
+    report_to="none",
+    use_cpu=True,
+    dataloader_num_workers=0,
+    fp16=False,
+    gradient_checkpointing=False,
+    seed=42,
+)
+
+collator = DataCollatorForLanguageModeling(
+    tokenizer=tokenizer,
+    mlm=False,
+)
+
+trainer = Trainer(
+    model=model,
+    args=training_args,
+    train_dataset=dataset,
+    data_collator=collator,
+)
+
+# 7. Train and save
+print("\nStarting v4 training on CPU...", flush=True)
+print("Keep this terminal open during training.\n", flush=True)
+
+trainer.train()
+
+OUTPUT.mkdir(parents=True, exist_ok=True)
+model.save_pretrained(str(OUTPUT))
+tokenizer.save_pretrained(str(OUTPUT))
+
+print("\n" + "=" * 50, flush=True)
+print("V4 TRAINING FINISHED", flush=True)
+print(f"Adapter saved to: {OUTPUT}", flush=True)
+print("=" * 50, flush=True)

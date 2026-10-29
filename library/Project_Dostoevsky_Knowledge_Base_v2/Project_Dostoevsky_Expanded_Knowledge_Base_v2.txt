@@ -1,0 +1,131 @@
+PROJECT DOSTOEVSKY
+Expanded Literary Knowledge Base
+Version 2.0 | 27 October 2026 | Retrieval-oriented reference
+
+PURPOSE
+This expands the earlier Project Dostoevsky knowledge document. The earlier draft's 20 example conversations are useful behavior examples, but examples alone are not a sufficient literary knowledge base. This document adds structured information about the author, recurring concepts, seven major works, character/author distinctions, conversational safeguards, and retrieval design.
+
+Use this as a retrieval-augmented generation (RAG) source. Retrieve a few relevant sections for each question; do not paste the entire document into every prompt. This is a practical prototype, not a scholarly edition. It contains no verified quotations or page numbers.
+
+1. ANSWERING RULES
+- Separate author, narrator, and character. Say “Ivan argues…”, “the Underground Man claims…”, or “one interpretation is…”. A fictional speaker is not automatically Dostoevsky's spokesperson.
+- Distinguish plot from interpretation. State plot events directly; label claims about symbolism, intention, or a novel's ultimate message as interpretations.
+- Avoid slogans. Do not reduce Dostoevsky to “suffering is good”, “reason is useless”, or “faith solves everything”. His fiction stages conflicts between competing voices.
+- Never invent quotations, chapters, translations, or page numbers. Translation wording varies. If the text is unavailable, say that exact wording needs checking.
+- Answer the actual question first. Use literary references only when relevant or requested.
+- Keep ordinary answers concise, usually 2–5 sentences for this small model.
+- Psychological insight is not diagnosis. Do not glamorize self-harm, addiction, cruelty, or suffering.
+- Admit uncertainty when the retrieved context does not support a detail.
+
+2. AUTHOR CONTEXT
+Fyodor Mikhailovich Dostoevsky (1821–1881) was a Russian novelist, short-story writer, and essayist. His fiction explores consciousness, moral responsibility, freedom, faith, doubt, humiliation, violence, and human connection. Rather than simply lecturing, his novels often stage competing voices and let their arguments collide.
+In 1849 he was arrested in connection with the Petrashevsky Circle, whose members discussed literature and social and political ideas. He underwent a mock execution before his sentence was commuted, then spent years in penal servitude in Siberia followed by compulsory military service. This is important context, but it does not explain every fictional character in a simple one-to-one way.
+His later fiction engages debates about European rationalism, socialism, religion, Russian identity, and the moral consequences of abstract theories. His views changed over time and should not be reduced to one doctrine. Characters may express ideas he criticizes, partly shares, or leaves unresolved.
+Historical caution: his writing also contains prejudices of his time, including antisemitic passages and nationalist or exclusionary views. A responsible account acknowledges these without erasing his literary importance or reducing all his work to one issue.
+
+3. KEY CONCEPTS
+Freedom vs rational self-interest: people may reject a system promising calculated happiness if it denies their ability to choose, even irrationally. Central to Notes from Underground.
+Self-consciousness and paralysis: relentless self-analysis can make action difficult and can protect pride or resentment.
+Spite and wounded pride: humiliation can lead someone to act destructively to avoid feeling controlled. The act may feel like agency while deepening isolation.
+Responsibility and rationalization: characters build theories to make desired actions seem permissible; the plot tests these theories against guilt, relationships, and consequences.
+Freedom as burden: freedom brings uncertainty and responsibility, not only liberation.
+Faith and doubt: belief, skepticism, and rebellion are lived struggles, not merely abstract positions.
+Suffering and compassion: suffering may prompt change, but it can also damage or isolate. It is not automatically beneficial.
+Alienation and recognition: characters long to be understood but may sabotage the relationships that could provide recognition.
+Ideas vs lived reality: an abstract theory may look consistent on paper but become morally unstable when applied to actual people.
+Contradiction as characterization: characters may sincerely want incompatible things or explain an action in a way that hides its emotional motive.
+
+4. MAJOR WORKS
+
+4.1 NOTES FROM UNDERGROUND (1864)
+Setup: An unnamed retired civil servant, commonly called the Underground Man, narrates a self-contradictory monologue. Part I is polemical and philosophical; Part II recounts humiliating encounters from his earlier life.
+Central conflict: He resists the belief that human behavior can be fully explained by rational self-interest or that society can be engineered into a perfect system. People may choose against their advantage to assert freedom, even through spite or self-sabotage.
+Psychology: He is self-conscious, resentful, proud, lonely, and sensitive to humiliation. He wants recognition but turns encounters into contests and sabotages connection.
+Interpretation: He is not a straightforward spokesperson for Dostoevsky. His arguments conflict with his behavior; readers are invited to examine his performance, self-deception, and suffering.
+Useful question: Is an irrational act proof of freedom, or can it also show bondage to pride and resentment?
+Common mistake: “Humans want freedom” is incomplete. His spite, contradictions, desire for recognition, and inability to convert insight into healthy action are central.
+
+4.2 CRIME AND PUNISHMENT (1866)
+Setup: Rodion Raskolnikov, an impoverished former student in St Petersburg, murders a pawnbroker and unexpectedly also kills her sister. He tries to live with the consequences as investigators close in.
+Central theory: Raskolnikov imagines that extraordinary individuals may be entitled to transgress ordinary moral rules for a higher purpose. The murder tests this theory.
+Psychological conflict: Pride and intellectual ambition collide with fear, guilt, bodily distress, compassion, and a need for connection. His motives are less coherent than he wants to believe.
+Key figures: Sonia Marmeladova offers compassion and spiritual endurance; Porfiry Petrovich applies psychological pressure through conversation; Dunya and Razumikhin provide other forms of loyalty and moral strength.
+Interpretation: The novel challenges the fantasy that someone can stand outside moral responsibility. Confession, suffering, love, and relationships make transformation imaginable, but the ending suggests a beginning rather than an effortless cure.
+Common mistake: Raskolnikov's theory is a character's theory, not Dostoevsky's moral position.
+
+4.3 THE IDIOT (1869)
+Setup: Prince Lev Myshkin, a gentle and unusually candid man who returns to Russia after treatment for epilepsy, enters a society shaped by money, status, desire, and manipulation.
+Conflict: His compassion encounters a world that often treats vulnerability as weakness or exploits goodness. His wish to help can coexist with limited practical judgment.
+Key figures: Nastasya Filippovna struggles with trauma, shame, pride, and others' attempts to control her. Aglaya Epanchin is drawn to Myshkin and to an idealized image of him. Rogozhin's obsessive desire contrasts with Myshkin's compassion.
+Themes: innocence and experience; compassion and possession; beauty and moral ambiguity; the limits of goodness in a damaged social order.
+Caution: Do not treat epilepsy as a moral explanation or the novel as a simple claim that goodness always wins.
+
+4.4 DEMONS / THE POSSESSED (1872)
+Setup: In a provincial Russian town, radicals and their associates become entangled in manipulation, ideological performance, scandal, and violence. Pyotr Verkhovensky organizes a conspiratorial group.
+Key figures: Nikolai Stavrogin is charismatic but inwardly opaque; Pyotr Verkhovensky is a manipulator; Stepan Trofimovich represents an older generation of liberal intellectuals; Shatov and Kirillov are drawn into ideological and spiritual crises.
+Themes: ideology as possession; political manipulation; generational conflict; nihilism; charisma and emptiness; treating people as instruments for a theory.
+Interpretation: Often read as a critique of conspiratorial revolutionary politics and the moral vacuum that can accompany it. It also satirizes an older generation whose vanity and ideas shape the younger one.
+Caution: Characters' positions are not interchangeable with Dostoevsky's own, and the novel is not a neutral account of every radical movement.
+
+4.5 THE BROTHERS KARAMAZOV (1880)
+Setup: The Karamazov family—father Fyodor Pavlovich and sons Dmitri, Ivan, and Alyosha—becomes central to a murder mystery in which the servant Smerdyakov is also important. The family conflict opens into questions about faith, morality, freedom, and suffering.
+Dmitri: passionate and impulsive, caught between shame and generosity, and accused of murdering his father. His legal case and inner life do not align neatly.
+Ivan: skeptical and morally troubled, he protests against a world in which innocent children suffer. His rebellion is an anguished moral challenge, not simply a tidy declaration of atheism.
+Alyosha: shaped by elder Zosima, he represents active compassion and spiritual openness, but is not a mouthpiece that ends every argument.
+Smerdyakov: complicates responsibility, influence, and the use of another person's ideas as justification.
+The Grand Inquisitor: a story narrated by Ivan imagines a religious authority arguing that people cannot bear freedom and prefer security, miracle, and authority. It stages a challenge to freedom and institutional power; it is not the novel's final answer by itself.
+Themes: evil; responsibility; faith and doubt; freedom and authority; family inheritance; guilt; compassion; whether ideas excuse actions.
+Common mistake: Do not reduce the novel to “Ivan is wrong and Alyosha is right”. Its force comes from serious competing arguments tested by suffering and action.
+
+4.6 WHITE NIGHTS (1848)
+Setup: A lonely unnamed dreamer in St Petersburg meets Nastenka during a series of night-time encounters. She tells him about her attachment to another man and asks for his help.
+Conflict: The dreamer longs for intimacy but has lived more through imagination than sustained relationships. Nastenka's return to her former beloved leaves him with a brief happiness that remains meaningful despite pain.
+Themes: loneliness; fantasy vs lived connection; generosity; brief happiness; the gap between imagining life and participating in it.
+Tone: more lyrical and tender than Notes from Underground, while still examining isolation.
+Common mistake: Do not treat the dreamer's pain as proof that isolation is superior to relationships.
+
+4.7 THE GAMBLER (1867)
+Setup: Alexei Ivanovich, a tutor in a financially precarious household, becomes caught in roulette, desire, and status competition at a German resort town. The novel was written under severe deadline pressure.
+Conflict: Gambling offers risk, imagined transformation, defiance, and hope. Winning and losing become bound up with identity and relationships, while the promise of control feeds repetition.
+Themes: chance and control; addiction; obsession; money and status; self-deception; the difference between wanting freedom and being governed by appetite.
+Biographical connection: Dostoevsky himself struggled with gambling, but Alexei remains fictional; parallels should be described cautiously.
+Safety: When a user discusses real gambling losses, prioritize practical harm reduction and support. Do not romanticize loss-chasing.
+
+5. CHARACTER / AUTHOR ATTRIBUTION GUIDE
+Underground Man: fictional narrator whose arguments about freedom and rationality are complicated by spite, contradiction, and isolation.
+Raskolnikov: his extraordinary-person theory is tested by consequences; it is not automatically the author's view.
+Sonia: compassion and religious endurance, not merely a simple symbol.
+Ivan Karamazov: protests against innocent suffering; his arguments are not identical to the author's final position.
+Alyosha Karamazov: active love and spiritual openness within a polyphonic novel.
+Grand Inquisitor: fictional tale within Ivan's narration, not a direct authorial essay.
+Stavrogin: charismatic, morally opaque figure open to multiple interpretations.
+Alexei Ivanovich: fictional gambler; autobiographical parallels should be cautious.
+
+6. CONVERSATIONAL BEHAVIOR PATTERNS
+Procrastination: describe the loop without shame: avoidance increases guilt, which makes starting harder. Suggest one small action.
+Fear that others dislike the user: distinguish feelings from evidence and offer alternatives without pretending to know other people's motives.
+Envy: treat envy as information about a desire, not proof of moral failure; distinguish wanting an achievement from wanting status or recognition.
+Guilt: distinguish guilt about an action from global self-condemnation; focus on repair and accountability.
+Self-sabotage: explore possible short-term functions such as avoiding judgment, preserving control, self-punishment, or resisting expectations. Present these as hypotheses, not diagnoses.
+Suffering: do not claim suffering is necessary or ennobling. It may deepen understanding, but it can also injure; support and circumstances matter.
+Gambling loss-chasing: clearly discourage another bet to recover losses. Encourage closing the app, contacting a trusted person, and seeking self-exclusion or local support.
+Despair or self-harm: drop literary framing, respond compassionately, encourage immediate real-world support, and direct the person to suitable emergency or crisis resources if there is immediate danger.
+Quotation requests: never invent exact wording or page numbers. Say when a phrase is paraphrased or commonly attributed and request the edition/text for verification.
+“What would Dostoevsky say?”: label modern application as speculation; connect it to a documented theme or fictional conflict.
+
+7. RETRIEVAL DESIGN
+- Treat each heading/subsection as a chunk. Preserve the work title and section label in every chunk.
+- Retrieve a few relevant chunks (often 2–4), not the whole document. Too much context can reduce reliability in a small model.
+- Supply retrieved text as reference material, not as instructions that override system or safety rules.
+- Prompt the model to answer from context, distinguish fact from interpretation, and admit when the context lacks a detail.
+- Keep behavior examples separate from factual chunks. Examples teach response style; factual chunks supply content.
+- If possible, add metadata: work, topic, chunk_id, source_status, and confidence.
+- Before academic publication, verify details and interpretations against reputable editions and scholarly sources.
+
+8. SUGGESTED ANSWER SHAPE
+Answer in this order: (1) direct answer; (2) explain the relevant character, scene, or idea; (3) add one complication or alternative reading; (4) label interpretation where appropriate. Do not force a life lesson onto every passage.
+Example: “The Underground Man sometimes acts against his interests to defend a sense of freedom. He rejects the idea that people can be fully predicted by rational calculations, but his spiteful acts also leave him more isolated. His rebellion is therefore both philosophically serious and psychologically self-defeating; the novel does not simply celebrate irrationality.”
+
+9. SOURCE AND VERIFICATION STATUS
+Expanded from the user's earlier “Project Dostoevsky: Knowledge Document” (version 1), retaining its focus on major works, themes, attribution safeguards, conversational behavior, and retrieval rather than further fine-tuning. This version adds structured coverage of seven works, concepts, character attribution, behavior patterns, and RAG implementation notes.
+Verification limitation: prepared as a practical prototype from the earlier draft and established general literary knowledge. It has no verified bibliography, quotations, or page references. Verify details against reputable scholarly editions before treating it as a fully sourced academic reference.
